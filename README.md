@@ -45,7 +45,7 @@ In a normal usage of the script (without the `-f` flag), it will only set up a n
 ### TODO
 
 - Apache2 compatibility
-- .env file auto modification
+- env file auto modification
 - MySQL assign default password
 
 ### License
