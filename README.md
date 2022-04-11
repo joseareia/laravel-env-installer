@@ -37,6 +37,8 @@ $ laravel-env-installer -f -n my-app
 
 If any doubts, just run `$ laravel-env-installer -h` for some brief help.
 
+**IMPORTANT NOTE:** If you choose to use the `-f` flag, during the installation of the service `MySQL` it will ask you to setup a *VALIDATE PASSWORD*. Enter `yes` and type your password and enter `yes` once again in order to save you password, then for the rest of the setup enter `no`.
+
 ### Dependencies
 
 This script doesn't depend on anything to run properly, although in the script itself, if the flag `-f` is assigned it will download and install the following services: `NGINX`, `MySQL`, `PHP` and `Composer`.
