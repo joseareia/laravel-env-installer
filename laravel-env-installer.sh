@@ -2,6 +2,7 @@
 
 bold=$(tput bold)
 normal=$(tput sgr0)
+ipath="/opt/laravel-env-installer"
 
 exit_abnormal() {
     echo -e "Usage: ${0##*/} [-f] [-n NAME] [-p PATH]"
@@ -82,7 +83,13 @@ fi
 
 # Nginx Config
 nginxdpath="/etc/nginx/sites-available/$name"
-sudo cp -v nginx-config $nginxdpath
+
+if [ ! -d "$ipath" ]; then
+    sudo cp -v nginx-config $nginxdpath
+else
+    sudo cp -v $ipath/nginx-config $nginxdpath
+fi
+
 sudo sed -i "s/DOMAIN_NAME/$name.test/g" $nginxdpath
 sudo sed -i "s/PROJECT_NAME/$name/g" $nginxdpath
 sudo chown root:root $nginxdpath && sudo chmod 644 $nginxdpath
