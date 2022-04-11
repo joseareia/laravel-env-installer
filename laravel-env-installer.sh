@@ -94,9 +94,13 @@ else
     (cd /var/www/$name; sudo composer install; sudo php artisan key:generate)
 fi
 
-curl -L https://github.com/joseareia/laravel-permissions/archive/refs/tags/v1.0.0.tar.gz -o /tmp/laravel-permissions.tar.gz
-sudo mkdir -p /tmp/laravel-permissions && sudo tar -xvf /tmp/laravel-permissions.tar.gz -C /tmp/laravel-permissions --strip-components=1
-(cd /tmp/laravel-permissions; sudo chmod +x install.sh; ./install.sh)
+if ! command -v laravel-permissions &> /dev/null
+then
+    curl -L https://github.com/joseareia/laravel-permissions/archive/refs/tags/v1.0.0.tar.gz -o /tmp/laravel-permissions.tar.gz
+    sudo mkdir -p /tmp/laravel-permissions && sudo tar -xvf /tmp/laravel-permissions.tar.gz -C /tmp/laravel-permissions --strip-components=1
+    (cd /tmp/laravel-permissions; sudo chmod +x install.sh; ./install.sh)
+fi
+
 [ ! -z "$pflag" ] && (cd $path/$name; laravel-permissions) || (cd /var/www/$name; laravel-permissions)
 
 sudo sed -i.bak "3i\
