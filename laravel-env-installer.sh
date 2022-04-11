@@ -13,7 +13,7 @@ show_help() {
 	echo -e "\t-h\tshow brief help"
 	echo -e "\t-f\tfresh Linux installation environment (${bold}OPTIONAL${normal})"
     echo -e "\t-n\tspecify the name of the project"
-	echo -e "\t-p\tspecify the directory that the project will be stored (${bold}OPTIONAL${normal})\n"
+	echo -e "\t-p\tspecify the directory where the project will be stored (${bold}OPTIONAL${normal})\n"
 	echo -e "${bold}NOTE:${normal} If -p is not used, the project will be stored in /var/www/."
 }
 
