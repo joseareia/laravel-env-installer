@@ -9,7 +9,8 @@ Follow this steps to make the script run globally in your machine.
 ```shell
 $ curl -L https://github.com/joseareia/laravel-env-installer/archive/refs/tags/v1.0.0.tar.gz -o laravel-env-installer.tar.gz
 $ mkdir laravel-env-installer
-$ tar -xvf laravel-env-installer.tar.gz -C laravel-env-installer --strip-components=1; cd laravel-env-installer
+$ tar -xvf laravel-env-installer.tar.gz -C laravel-env-installer --strip-components=1
+$ cd laravel-env-installer
 $ chmod +x install.sh laravel-env-installer.sh
 $ ./install.sh
 ```
@@ -40,13 +41,13 @@ If any doubts, just run `$ laravel-env-installer -h` for some brief help.
 
 This script doesn't depend on anything to run properly, although in the script itself, if the flag `-f` is assigned it will download and install the following services: `NGINX`, `MySQL`, `PHP` and `Composer`.
 
-In a normal usage of the script (without the `-f` flag), it will only set up a new Laravel project via Composer, create a new Nginx server block and it will download the most recent release of the project [Laravel Permissions](https://github.com/joseareia/laravel-permissions) and run it.
+In a normal usage of the script (without the `-f` flag), it will only set up a new Laravel project via `Composer`, create a new `Nginx Server Block` and it will download the most recent release of the project [Laravel Permissions](https://github.com/joseareia/laravel-permissions) and run it in order to assign the correct permissions to your Laravel project.
 
 ### TODO
 
 - Apache2 compatibility
+- MySQL assign default password during installation
 - env file auto modification
-- MySQL assign default password
 
 ### License
 
