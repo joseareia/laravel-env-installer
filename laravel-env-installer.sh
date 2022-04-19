@@ -65,7 +65,7 @@ if [ ! -z "$fflag" ]; then
     sudo mysql_secure_installation
 
     # PHP
-    sudo apt --yes --force-yes install php-fpm php-mysql php-mbstring php-xml php-bcmath php-cli unzip
+    sudo apt --yes --force-yes install php-fpm php-mysql php-mbstring php-xml php-bcmath php-cli libapache2-mod-php libapache2-mod-fcgid php-curl php-dev php-gd php-zip unzip
 
     # Composer
     curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
@@ -90,8 +90,11 @@ else
     sudo cp -v $ipath/nginx-config $nginxdpath
 fi
 
+php_v_path=$(find /var/run/php -type s -print -quit | xargs stat -c "%n" 2>&1)
+
 sudo sed -i "s/DOMAIN_NAME/$name.test/g" $nginxdpath
 sudo sed -i "s/PROJECT_NAME/$name/g" $nginxdpath
+sudo sed -i "s/PHP_VERSION/$php_v_path/g" $nginxdpath
 sudo chown root:root $nginxdpath && sudo chmod 644 $nginxdpath
 sudo ln -s $nginxdpath /etc/nginx/sites-enabled/$name
 
